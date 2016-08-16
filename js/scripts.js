@@ -81,7 +81,7 @@ $(document).ready(function() {
   $('#factorialForm').submit(function(event) {
     var numberInput = parseInt($('#factorialInput').val());
     var newNumber = factorial(numberInput);
-    console.log(factorial);
+    $('#results3').append(newNumber);
     event.preventDefault();
   });
 });

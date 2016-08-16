@@ -1,12 +1,13 @@
 // //<!-- Back End -->
 var output = [];
-var vowels = ['a','e','i','o','u'];
 
+// **************counting**************
 function countUp(multiple, end) {
   for (i = 0; i <= end; i += multiple) {
     output.push(i);
   }
 }
+// **************word thing**************
 
 // function removeVowels(string) {
 //   var vowels = ['a','e','i','o','u'];
@@ -32,11 +33,28 @@ function removeVowels(string) {
   }
   return newArray.join("");
 };
+// **************factorial**************
+
+function factorial(number) {
+  for (i = number - 1; i > 0; i--) {
+    number = number * i;
+  }
+  return number;
+  // var total = 1
+  // var factArray = [];
+  // for (i = 1; i <= number; i++) {
+  //   factArray.push(i);
+  // } return factArray
+  // for (i = 0; i = factArray.length; i++) {
+  //   // total *= factArray
+  // } return total;
+};
 
 
 
 //<!-- Front End  -->
 $(document).ready(function() {
+  // **************counting**************
   $('#numberForm').submit(function(event) {
     var countTo = parseInt($('#countTo').val());
     var countBy = parseInt($('#countBy').val());
@@ -49,15 +67,21 @@ $(document).ready(function() {
     } else {
     countUp(countBy, countTo);
     $('#results').append(output.toString());
-    //prevent countby from being higher than countTo
     event.preventDefault();
-    // this is the end of the numbers thing dawg, now we start the words thing.
     }
   });
+  // **************words**************
   $('#wordForm').submit(function(event) {
     var sentence = $('#sentenceInput').val();
     var newSentence = removeVowels(sentence);
     $('#results2').append(newSentence);
+    event.preventDefault();
+  });
+ // **************factorial**************
+  $('#factorialForm').submit(function(event) {
+    var numberInput = parseInt($('#factorialInput').val());
+    var newNumber = factorial(numberInput);
+    console.log(factorial);
     event.preventDefault();
   });
 });

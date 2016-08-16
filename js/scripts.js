@@ -49,7 +49,20 @@ function factorial(number) {
   //   // total *= factArray
   // } return total;
 };
+// **************palindromes**************
 
+function palindromes(word) {
+  var firstArray = word.split('');
+  var reverseArray = firstArray.slice().reverse('').join();
+  firstArray = firstArray.join();
+  if (firstArray === reverseArray) {
+    console.log('this is a palendrome!')
+  } else {
+    console.log('this is not a palendrome')
+  }
+  console.log(firstArray);
+  console.log(reverseArray);
+  }
 
 
 //<!-- Front End  -->
@@ -82,6 +95,12 @@ $(document).ready(function() {
     var numberInput = parseInt($('#factorialInput').val());
     var newNumber = factorial(numberInput);
     $('#results3').append(newNumber);
+    event.preventDefault();
+  });
+  // **************palindromes**************
+  $('#palindromesForm').submit(function(event) {
+    var pWord = $('#palindromesInput').val();
+    palindromes(pWord);
     event.preventDefault();
   });
 });
